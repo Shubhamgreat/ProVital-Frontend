@@ -1,0 +1,222 @@
+/* Mobile Menu Styles */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.mobile-menu {
+    width: 100vw; /* Full viewport width */
+    max-width: 100vw; /* Prevent overflow */
+    height: 100vh;
+    height: 100dvh; /* For modern browsers */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    animation: slideDown 0.3s ease-out;
+    position: relative;
+    will-change: transform;
+    overflow: hidden; /* Prevent content overflow */
+    box-sizing: border-box; /* Include padding/border in width */
+    padding: 0; /* Remove any padding that causes overflow */
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(12px, 4vw, 20px) clamp(16px, 5vw, 24px);
+    border-bottom: 1px solid #E5E7EB;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.mobile-menu-header .logo {
+    height: clamp(20px, 6vw, 24px);
+    width: auto;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #111827;
+    width: clamp(40px, 12vw, 48px);
+    height: clamp(40px, 12vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    margin: -8px;
+}
+
+.close-button:hover {
+    background-color: #F3F4F6;
+}
+
+.close-button svg {
+    width: clamp(20px, 6vw, 24px);
+    height: clamp(20px, 6vw, 24px);
+    stroke-width: 2.5;
+}
+
+.auth-card {
+    margin: clamp(12px, 4vw, 20px) clamp(16px, 5vw, 24px);
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.auth-section {
+    padding: clamp(12px, 4vw, 16px);
+}
+
+.auth-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(8px, 3vw, 16px);
+    flex-wrap: wrap;
+}
+
+.auth-row span {
+    color: #111827;
+    font-size: clamp(13px, 3.5vw, 14px);
+    font-weight: 500;
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.auth-links a {
+    color: #2563EB;
+    text-decoration: none;
+    font-size: clamp(13px, 3.5vw, 14px);
+    font-weight: 500;
+    padding: 4px 0;
+}
+
+.auth-links span {
+    color: #9CA3AF;
+}
+
+hr {
+    margin: 0;
+    border: none;
+    border-top: 1px solid #E5E7EB;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(8px, 2vw, 12px);
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: env(safe-area-inset-bottom, 20px); /* For notched phones */
+}
+
+.nav-item {
+    padding: clamp(14px, 4vw, 18px) clamp(16px, 5vw, 24px);
+    border-bottom: 1px solid #E5E7EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #111827;
+    text-decoration: none;
+    font-size: clamp(13px, 3.5vw, 14px);
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    gap: 12px;
+}
+
+.nav-item:active {
+    background-color: #F3F4F6;
+}
+
+.nav-item:hover {
+    background-color: #F9FAFB;
+}
+
+.arrow {
+    color: #6B7280;
+    font-size: clamp(16px, 4.5vw, 18px);
+    flex-shrink: 0;
+}
+
+/* Small height screens */
+@media screen and (max-height: 600px) {
+    .auth-card {
+        margin: 8px clamp(16px, 5vw, 24px);
+    }
+    
+    .auth-section {
+        padding: 8px;
+    }
+    
+    .nav-item {
+        padding: 12px clamp(16px, 5vw, 24px);
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+    .mobile-menu-header {
+        padding: 12px;
+    }
+    
+    .auth-card {
+        margin: 12px;
+    }
+    
+    .nav-item {
+        padding: 14px 16px;
+    }
+} 
+@media screen and (max-width: 360px) {
+    .mobile-menu {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .nav-item {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+  
